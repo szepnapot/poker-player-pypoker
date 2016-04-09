@@ -14,9 +14,6 @@ class TestPlayer(TestCase):
       self.pelda = json.loads(json_string)
       self.state = GameState(self.pelda)
    
-   def test_preflop(self):
-      self.assertEqual(True, self.state.is_preflop())
-
    def test_keep(self):
       self.assertEqual(240, self.state.keep())
 
@@ -27,6 +24,10 @@ class TestPlayer(TestCase):
       self.pelda["players"][1]["hole_cards"][0]["rank"] = "A"
       self.assertEqual(400,self.player.betRequest(self.pelda))
 
+   def test_second_round(self):
+      self.pelda[u"bet_index"] = 1
+      self.assertEqual(240,self.player.betRequest(self.pelda))
+   
    def test_JJ_preflop(self):
       state = json.loads(open('prefloptest.json').read())
       self.assertEqual(500, self.player.betRequest(state)) 

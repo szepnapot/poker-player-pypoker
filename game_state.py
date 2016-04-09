@@ -37,9 +37,6 @@ class GameState:
     def get_rank(self):
         return self.get_cards()[u"rank"]
 
-    def is_preflop(self):
-        return len(self.community_cards()) == 0
-
     def get_highest_rank(self):
         cards = self.get_cards()
         rank0 = cards[0][u"rank"]
