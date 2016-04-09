@@ -2,6 +2,7 @@ from __future__ import print_function
 import sys
 import traceback
 from game_state import GameState
+from randomize import Randomize
 
 def warning(*objs):
     print("WARNING: ", *objs, file=sys.stderr)
@@ -9,6 +10,9 @@ def warning(*objs):
     
 
 class Player:
+    def __init__( self, test_mode = False  ):
+       self.rand = Randomize( test_mode )
+
     VERSION = "Default Python folding player"
    
     def preFlopBet(self):
