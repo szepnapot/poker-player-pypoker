@@ -23,9 +23,9 @@ class Player:
         elif self.state.get_round() == 1:
                 if self.state.get_cards()[0] or self.state.get_cards()[1] in self.state.community_cards():
                     return self.state.keep()
-                return 0
+                return self.keep()
         else:
-            return self.state.buy_in(self.state) - self.state.player()['bet']
+            return self.state.keep()
 
     def betRequest(self, game_state):
         self.state = GameState(game_state)
