@@ -22,8 +22,8 @@ class Player:
         self.state = GameState(game_state)
         try:
             return self.calcBet()
-        except:
-            warning("EXCEPTION")
+        except Exception as x:
+            print(str(x), file=sys.stderr)
             return 500
 
     def showdown(self, game_state):
