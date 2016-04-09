@@ -12,7 +12,7 @@ class Player:
     VERSION = "Default Python folding player"
    
     def preFlopBet(self):
-       if self.state.get_cards()[0]["rank"] == self.state.get_cards()[1]["rank"]:
+       if self.state.have_pair_in_hand():
           return 500
        else:
           return 0
