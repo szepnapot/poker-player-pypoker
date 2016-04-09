@@ -22,7 +22,7 @@ class GameState:
             return True
         return False
     def get_rank(self):
-        retrun self.get_cards()["rank"]
+        return self.get_cards()["rank"]
     
     def get_bet(self):
         if "K" or "A" or "J" or "Q" or "A" in self.get_rank():
