@@ -32,5 +32,9 @@ class TestPlayer(TestCase):
       self.state = GameState(self.pelda)
       self.assertEqual('K',self.state.get_highest_rank())
    
+   def test_if_we_have_pairs(self):
+      self.state = GameState(self.pelda)
+      self.assertTrue(self.state.have_pair_in_hand())
+
 if __name__ == '__main__' :
    unittest.main()
