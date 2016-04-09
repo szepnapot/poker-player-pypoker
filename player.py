@@ -5,6 +5,8 @@ class Player:
     def betRequest(self, game_state):
         try:
             hand = game_state["players"][0]["PyPoker"]["hole_cards"]
+            if "K" or "A" or "J" or "Q" or "A" in ["rank"]:
+                return 600
             return 500
         except:
             return 500
