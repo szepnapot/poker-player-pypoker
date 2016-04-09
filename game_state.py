@@ -9,34 +9,27 @@ class GameState:
         print("WARNING: ", self.state, file=sys.stderr)
 
     def player(self):
-        return self.state["players"]["in_action_number"]
+        return self.state["players"][u"in_action_number"]
 
     def get_cards(self):
-        return self.player()["hole_cards"]
+        return self.player()[u"hole_cards"]
 
     def get_round(self):
-        return self.state["round"]
+        self.warning()
+        return self.state[u"round"]
 
     def get_stack(self):
-        return self.player()["stack"]
+        return self.player()[u"stack"]
 
     def is_dealer(self):
-        if self.state["in_action"]["dealer"] == 1:
+        if self.state[u"in_action"][u"dealer"] == 1:
             return True
         return False
-    def get_rank(self):
-        return self.get_cards()["rank"]
-    
-    def get_bet(self):
-        if "K" or "A" or "J" or "Q" or "A" in self.get_rank():
-            if game_state['round'] == 0:
-                return 500
-            else:
-                return 0
-        else:
-            return self.buy_in(self.game_state) - self.player()['bet']
 
+    def get_rank(self):
+        return self.get_cards()[u"rank"]
+    
     def community_cards(self, game_state):
-        return self.state["in_action"]["community_cards"]
+        return self.state[u"in_action"][u"community_cards"]
 
  
