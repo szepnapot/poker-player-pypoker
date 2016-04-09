@@ -14,11 +14,11 @@ class Player:
     def preFlopBet(self):
        stack = self.state.get_stack()
        if self.state.have_pair_in_hand():
-          return round(stack * 0.5)
+          return int(round(stack * 0.5))
        elif self.state.get_highest_rank() == "A":
-          return round(stack * 0.4)
+          return int(round(stack * 0.4))
        elif self.state.get_highest_rank() == "K":
-          return round(stack * 0.3)
+          return int(round(stack * 0.3))
        return 0
  
     def calcBet(self):
