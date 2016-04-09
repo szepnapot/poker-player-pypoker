@@ -22,14 +22,12 @@ class Player:
        return 0
  
     def calcBet(self):
-        if self.state.get_round() >= 0:
+        if self.state.is_preflop():
             return self.preFlopBet()
-        elif self.state.get_round() > 1:
+        else:
             if self.preFlopBet() != 0:
                return self.state.keep()
             return 0
-        else:
-            return self.state.keep()
 
     def betRequest(self, game_state):
         self.state = GameState(game_state)

@@ -14,6 +14,9 @@ class TestPlayer(TestCase):
       self.pelda = json.loads(json_string)
       self.state = GameState(self.pelda)
    
+   def test_preflop(self):
+      self.assertEqual(False, self.state.is_preflop())
+
    def test_keep(self):
       self.assertEqual(240, self.state.keep())
 
