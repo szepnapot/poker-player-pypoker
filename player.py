@@ -7,17 +7,40 @@ def warning(*objs):
     
 
 class Player:
-    VERSION = "ChecknRaise"
+    VERSION = "Default Python folding player"
+
+    def in_action_number(self, game_state):
+        return game_state["in_action"]
+
+    def player(self, game_state):
+        return game_state["players"][self.in_action_number]
+
+    def get_cards(self, game_state):
+        return game_state[self.player]["hole_cards"]
+
+    def get_stack(self, game_state):
+        return game_state[self.player]["stack"]
+
+    def is_dealer(self, game_state):
+        if game_state["in_action"]["dealer"] == 1:
+            return True
+        return False
+
+    def community_cards(self, game_state):
+        return game_state["in_action"]["community_cards"]
+
+    def buy_in(self, game_state):
+        return
 
     def betRequest(self, game_state):
         try:
-            warning(game_state)
-            hand = game_state["players"][0]["PyPoker"]["hole_cards"]
-            if "K" or "A" or "J" or "Q" or "A" in ["rank"]:
+            hand = self.get_cards
+            current_stack = self.get_stack
+            if "K" or "A" or "J" or "Q" or "A" in hand["rank"]:
                 return 600
-            return 500
         except:
             return 500
 
     def showdown(self, game_state):
         pass
+
