@@ -14,9 +14,9 @@ class Player:
     def preFlopBet(self):
        if self.state.have_pair_in_hand():
           return 500
-       elif self.state.get_highest_rank() == ["A"]:
+       elif self.state.get_highest_rank() == "A":
           return 400
-       elif self.state.get_highest_rank() == ["K"]:
+       elif self.state.get_highest_rank() == "K":
           return 300
        return 0
  
