@@ -6,6 +6,7 @@ NUMBERS = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
 class GameState:
     def __init__(self,state):
         self.state = state
+        self.warning()
 
     def warning(self):
         print("WARNING: ", self.state, file=sys.stderr)
@@ -17,7 +18,6 @@ class GameState:
         return self.player()[u"hole_cards"]
 
     def get_round(self):
-        self.warning()
         return self.state[u"bet_index"]
 
     def get_stack(self):
