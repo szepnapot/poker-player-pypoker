@@ -7,10 +7,11 @@ def warning(*objs):
     
 
 class Player:
-    VERSION = "Default Python folding player"
+    VERSION = "ChecknRaise"
 
     def betRequest(self, game_state):
         try:
+            warning(game_state)
             hand = game_state["players"][0]["PyPoker"]["hole_cards"]
             if "K" or "A" or "J" or "Q" or "A" in ["rank"]:
                 return 600
