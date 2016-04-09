@@ -47,8 +47,8 @@ class GameState:
             return rank1
 
     
-    def community_cards(self, game_state):
-        return self.state[u"in_action"][u"community_cards"]
+    def community_cards(self):
+        return self.state[u"community_cards"]
 
     def have_pair_in_hand(self):
         return self.get_cards()[0]["rank"] == self.get_cards()[1]["rank"]
