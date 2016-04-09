@@ -22,9 +22,9 @@ class Player:
        return 0
  
     def calcBet(self):
-        if self.state.get_round() == 0:
+        if self.state.get_round() >= 0:
             return self.preFlopBet()
-        elif self.state.get_round() > 0:
+        elif self.state.get_round() > 1:
             if self.preFlopBet() != 0:
                return self.state.keep()
             return 0
