@@ -9,10 +9,10 @@ class GameState:
         print("WARNING: ", self.state, file=sys.stderr)
 
     def player(self):
-        return self.state["players"][self.state[u"in_action"]]
+        return self.state["players"][u"in_action"]
 
     def get_cards(self):
-        return self.player()[u"hole_cards"]
+        return self.player()[u"hole_cards"][u"rank"]
 
     def get_round(self):
         self.warning()
@@ -26,13 +26,12 @@ class GameState:
             return True
         return False
 
-    def buy_in(self):
-        return self.state[u"current_buy_in"]
-
     def get_rank(self):
         return self.get_cards()[u"rank"]
     
-    def community_cards(self, game_state):
+    def community_cards(self):
         return self.state[u"in_action"][u"community_cards"]
 
+    def buy_in(self):
+        return self.state[u"in_action"][u"current_buy_in"]
  
