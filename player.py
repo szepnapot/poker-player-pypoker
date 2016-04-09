@@ -1,3 +1,10 @@
+from __future__ import print_function
+import sys
+
+
+def warning(*objs):
+    print("WARNING: ", *objs, file=sys.stderr)
+    
 
 class Player:
     VERSION = "Default Python folding player"
