@@ -12,12 +12,13 @@ class Player:
     VERSION = "Default Python folding player"
    
     def preFlopBet(self):
+       stack = self.state.get_stack()
        if self.state.have_pair_in_hand():
-          return 500
+          return round(stack * 0.5)
        elif self.state.get_highest_rank() == "A":
-          return 400
+          return round(stack * 0.4)
        elif self.state.get_highest_rank() == "K":
-          return 300
+          return round(stack * 0.3)
        return 0
  
     def calcBet(self):
