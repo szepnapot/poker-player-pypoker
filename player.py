@@ -12,13 +12,14 @@ class Player:
     VERSION = "Default Python folding player"
     
     def calcBet(self):
-        if "K" or "A" or "J" or "Q" or "A" in self.state.get_rank():
-            if self.state.get_round() == 0:
+        if self.state.get_round() == 0:
+            if "K" or "A" or "J" or "Q" or "A" in self.state.get_rank():
+                warning(500)
                 return 500
             else:
                 return 0
         else:
-            return self.buy_in(self.game_state) - self.player()['bet']
+            return self.state.buy_in() - self.state.player()['bet']
 
     def betRequest(self, game_state):
         self.state = GameState(game_state)
