@@ -14,6 +14,9 @@ class GameState:
     def get_cards(self):
         return self.player()["hole_cards"]
 
+    def get_round(self):
+        return self.state["round"]
+
     def get_stack(self):
         return self.player()["stack"]
 
