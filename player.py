@@ -22,7 +22,7 @@ class Player:
             return self.preFlopBet()
         elif self.state.get_round() == 1:
                 if self.state.get_cards()[0] or self.state.get_cards()[1] in self.state.community_cards():
-                    return self.state.buy_in()
+                    return self.state.keep()
                 return 0
         else:
             return self.state.buy_in(self.state) - self.state.player()['bet']

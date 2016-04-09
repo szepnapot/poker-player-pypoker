@@ -14,10 +14,13 @@ class TestPlayer(TestCase):
     
    def setUp(self):
       self.player = Player()
-      self.state = GameState({'in_action':666})
       json_string = open('pelda.json').read()
       self.pelda = json.loads(json_string)
+      self.state = GameState(self.pelda)
       print '---> pelda in_action:',self.pelda["in_action"]
+
+   def test_keep(self):
+      self.assertEqual(240, self.state.keep())
 
    def test_first_round(self):
       self.assertEqual(500,self.player.betRequest(self.pelda))

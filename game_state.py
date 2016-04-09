@@ -27,7 +27,10 @@ class GameState:
         return False
 
     def buy_in(self):
-        return self.state[u"current_buy_in"]
+        return self.state["current_buy_in"]
+
+    def keep(self):
+        return self.buy_in() - self.player()["bet"]
 
     def get_rank(self):
         return self.get_cards()[u"rank"]
