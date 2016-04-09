@@ -1,0 +1,3 @@
+
+class GameStateMock( GameState ):
+   pass

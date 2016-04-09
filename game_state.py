@@ -1,6 +1,8 @@
 from __future__ import print_function
 import sys
 
+NUMBERS = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
+
 class GameState:
     def __init__(self,state):
         self.state = state
@@ -34,6 +36,16 @@ class GameState:
 
     def get_rank(self):
         return self.get_cards()[u"rank"]
+
+    def get_highest_rank(self):
+        cards = self.get_cards()
+        rank0 = cards[0][u"rank"]
+        rank1 = cards[1][u"rank"]
+        if (NUMBERS.index(rank0) > NUMBERS.index(rank1)):
+            return rank0
+        else:
+            return rank1
+
     
     def community_cards(self, game_state):
         return self.state[u"in_action"][u"community_cards"]

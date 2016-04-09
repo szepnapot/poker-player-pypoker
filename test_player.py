@@ -6,10 +6,6 @@ import json
 #to run the test type into the command line:
 # $ python -m unittest test_player
 
-class GameStateMock( GameState ):
-   pass
-
-
 class TestPlayer(TestCase):
     
    def setUp(self):
@@ -17,7 +13,7 @@ class TestPlayer(TestCase):
       json_string = open('pelda.json').read()
       self.pelda = json.loads(json_string)
       self.state = GameState(self.pelda)
-
+   
    def test_keep(self):
       self.assertEqual(240, self.state.keep())
 
@@ -27,6 +23,10 @@ class TestPlayer(TestCase):
    def test_second_round(self):
       self.pelda[u"round"] = 1
       self.assertEqual(240,self.player.betRequest(self.pelda))
+   
+   def test_get_highest_rank(self):
+      self.state = GameState(self.pelda)
+      self.assertEqual('K',self.state.get_highest_rank())
    
 if __name__ == '__main__' :
    unittest.main()
