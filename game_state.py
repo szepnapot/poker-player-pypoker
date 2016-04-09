@@ -21,9 +21,17 @@ class GameState:
         if self.state["in_action"]["dealer"] == 1:
             return True
         return False
-
+    def get_rank(self):
+        retrun self.get_cards()["rank"]
+    
     def get_bet(self):
-        pass
+        if "K" or "A" or "J" or "Q" or "A" in self.get_rank():
+            if game_state['round'] == 0:
+                return 500
+            else:
+                return 0
+        else:
+            return self.buy_in(self.game_state) - self.player()['bet']
 
     def community_cards(self, game_state):
         return self.state["in_action"]["community_cards"]
