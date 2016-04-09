@@ -33,7 +33,7 @@ class Player:
             return self.calcBet()
         except Exception as x:
             warning("Exception during betRequest", x)
-            return 500
+            return 501
 
     def showdown(self, game_state):
         pass
