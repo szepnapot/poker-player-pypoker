@@ -1,9 +1,11 @@
 from __future__ import print_function
 import sys
+import traceback
 from game_state import GameState
 
 def warning(*objs):
     print("WARNING: ", *objs, file=sys.stderr)
+    traceback.print_exc()
     
 
 class Player:
@@ -23,7 +25,7 @@ class Player:
         try:
             return self.calcBet()
         except Exception as x:
-            print(str(x), file=sys.stderr)
+            warning("Exception during betRequest", x)
             return 500
 
     def showdown(self, game_state):
