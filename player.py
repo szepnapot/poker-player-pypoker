@@ -13,13 +13,13 @@ class Player:
         return game_state["in_action"]
 
     def player(self, game_state):
-        return game_state["players"][self.in_action_number]
+        return game_state["players"][self.in_action_number( game_state)]
 
     def get_cards(self, game_state):
-        return game_state[self.player]["hole_cards"]
+        return game_state[self.player( game_state)]["hole_cards"]
 
     def get_stack(self, game_state):
-        return game_state[self.player]["stack"]
+        return game_state[self.player( game_state)]["stack"]
 
     def is_dealer(self, game_state):
         if game_state["in_action"]["dealer"] == 1:
@@ -30,7 +30,7 @@ class Player:
         return game_state["in_action"]["community_cards"]
 
     def buy_in(self, game_state):
-        return
+        return ""
 
     def betRequest(self, game_state):
         try:
