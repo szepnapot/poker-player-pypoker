@@ -28,6 +28,10 @@ class TestPlayer(TestCase):
       self.pelda[u"bet_index"] = 1
       self.assertEqual(240,self.player.betRequest(self.pelda))
    
+   def test_JJ_preflop(self):
+      state = json.loads(open('prefloptest.json').read())
+      self.assertEqual(500, self.player.betRequest(state)) 
+
    def test_get_highest_rank(self):
       self.state = GameState(self.pelda)
       self.assertEqual('K',self.state.get_highest_rank())
