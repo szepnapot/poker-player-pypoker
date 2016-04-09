@@ -10,12 +10,13 @@ class Player:
     VERSION = "Default Python folding player"
 
     def betRequest(self, game_state):
-
-        id = getattr(game_state, 'in_action')
-        #if game_state('players')[0]
-        print game_state
-        
-        return 500
+        try:
+            hand = game_state["players"][0]["PyPoker"]["hole_cards"]
+            if "K" or "A" or "J" or "Q" or "A" in ["rank"]:
+                return 600
+            return 500
+        except:
+            return 500
 
     def showdown(self, game_state):
         pass
