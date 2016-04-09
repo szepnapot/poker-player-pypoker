@@ -18,7 +18,7 @@ class GameState:
 
     def get_round(self):
         self.warning()
-        return self.state[u"round"]
+        return self.state[u"bet_index"]
 
     def get_stack(self):
         return self.player()[u"stack"]

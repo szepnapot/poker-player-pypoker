@@ -25,12 +25,18 @@ class TestPlayer(TestCase):
       self.assertEqual(400,self.player.betRequest(self.pelda))
 
    def test_second_round(self):
-      self.pelda[u"round"] = 1
+      self.pelda[u"bet_index"] = 1
       self.assertEqual(240,self.player.betRequest(self.pelda))
    
    def test_get_highest_rank(self):
       self.state = GameState(self.pelda)
       self.assertEqual('K',self.state.get_highest_rank())
+      self.pelda["players"][1]["hole_cards"][0]["rank"] = "A"
+      self.assertEqual('A',self.state.get_highest_rank())
+      self.pelda["players"][1]["hole_cards"][0]["rank"] = "7"
+      self.assertEqual('K',self.state.get_highest_rank())
+      self.pelda["players"][1]["hole_cards"][1]["rank"] = "J"
+      self.assertEqual('J',self.state.get_highest_rank())
    
    def test_if_we_have_pairs(self):
       self.state = GameState(self.pelda)
