@@ -14,7 +14,6 @@ class Player:
     def calcBet(self):
         if self.state.get_round() == 0:
             if "K" or "A" or "J" or "Q" or "A" in self.state.get_rank():
-                warning(500)
                 return 500
             else:
                 return 0
@@ -27,7 +26,7 @@ class Player:
             return self.calcBet()
         except Exception as x:
             warning("Exception during betRequest", x)
-            return 500
+            return 501
 
     def showdown(self, game_state):
         pass
