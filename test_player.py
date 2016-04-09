@@ -24,6 +24,10 @@ class TestPlayer(TestCase):
    def test_first_round(self):
       self.assertEqual(500,self.player.betRequest(self.pelda))
 
+   def test_first_round_nopair(self):
+      self.pelda["player"][1]["hole_cards"][0]["rank"] = "A"
+      self.assertEqual(0,self.player.betRequest(self.pelda))
+
    def test_second_round(self):
       self.pelda[u"round"] = 1
       self.assertEqual(240,self.player.betRequest(self.pelda))
