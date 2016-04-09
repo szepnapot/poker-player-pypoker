@@ -17,7 +17,6 @@ class TestPlayer(TestCase):
       json_string = open('pelda.json').read()
       self.pelda = json.loads(json_string)
       self.state = GameState(self.pelda)
-      print '---> pelda in_action:',self.pelda["in_action"]
 
    def test_keep(self):
       self.assertEqual(240, self.state.keep())
