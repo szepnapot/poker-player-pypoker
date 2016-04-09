@@ -34,8 +34,8 @@ class Player:
 
     def betRequest(self, game_state):
         try:
-            hand = self.get_cards()
-            current_stack = self.get_stack
+            hand = self.get_cards( game_state )
+            current_stack = self.get_stack( game_state )
             if "K" or "A" or "J" or "Q" or "A" in hand["rank"]:
                 return 600
         except:
