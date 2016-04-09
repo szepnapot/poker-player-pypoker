@@ -13,7 +13,7 @@ class Player:
     def betRequest(self, game_state):
         state = GameState(game_state)
         try:
-            return state.bet()
+            return state.get_bet()
         except:
             return 500
 
