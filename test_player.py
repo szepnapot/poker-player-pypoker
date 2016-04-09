@@ -42,5 +42,9 @@ class TestPlayer(TestCase):
       self.state = GameState(self.pelda)
       self.assertTrue(self.state.have_pair_in_hand())
 
+   def test_in_command(self):
+      assert( {u'rank': u'4', u'suit': u'spades'} in [ {u'rank': u'4', u'suit': u'spades'} ] )
+      assert( not {u'rank': u'4', u'suit': u'spades'} in [ {u'rank': u'4', u'suit': u'hearts'} ] )
+
 if __name__ == '__main__' :
    unittest.main()
